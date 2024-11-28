@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+    redis:
+        image: redis
+        restart: always
+        ports:
+            - 6178:6379
+        volumes:
+            - redis_data_a:/data
+        entrypoint: redis-server --appendonly yes
+    with-pw:
+        image: redis
+        restart: always
+        ports:
+            - 6179:6379
+        volumes:
+            - redis_data_b:/data
+        env_file: .env
+        entrypoint: redis-server --appendonly yes  --requirepass ${REDIS_PASSWORD}
+    
+volumes:
+    redis_data_a:
+    redis_data_b:
+
+networks:
+  default:
+    name: redis_network
