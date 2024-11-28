@@ -1,2 +1,11 @@
 .env
 venv
+src/webscraping/__pycache__
+src/products/__pycache__
+src/products/migrations
+src/nbs/__pycache__
+src/nbs/.ipynb_checkpoints
+src/movies/__pycache__
+src/movies/migrations
+src/helpers/__pycache__
+src/helpers/migrations
